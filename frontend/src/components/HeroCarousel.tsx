@@ -130,41 +130,48 @@ export function HeroCarousel() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="max-w-3xl"
               >
-                {/* Category Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 mb-6">
-                  <slides[currentSlide].icon size={20} className="text-white" />
-                  <span className="text-white font-semibold text-sm">
-                    {slides[currentSlide].category}
-                  </span>
-                </div>
+                {(() => {
+                  const IconComponent = slides[currentSlide].icon
+                  return (
+                    <>
+                      {/* Category Badge */}
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 mb-6">
+                        <IconComponent size={20} className="text-white" />
+                        <span className="text-white font-semibold text-sm">
+                          {slides[currentSlide].category}
+                        </span>
+                      </div>
 
-                {/* Title */}
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                  {slides[currentSlide].title}
-                </h1>
+                      {/* Title */}
+                      <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
+                        {slides[currentSlide].title}
+                      </h1>
 
-                {/* Description */}
-                <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-10 max-w-2xl">
-                  {slides[currentSlide].description}
-                </p>
+                      {/* Description */}
+                      <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-10 max-w-2xl">
+                        {slides[currentSlide].description}
+                      </p>
 
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 md:px-8 py-3 md:py-4 bg-white text-gray-900 rounded-full font-semibold text-sm md:text-base shadow-xl hover:shadow-2xl transition-all"
-                  >
-                    Browse {slides[currentSlide].category}
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-md border-2 border-white text-white rounded-full font-semibold text-sm md:text-base hover:bg-white/20 transition-all"
-                  >
-                    Learn More
-                  </motion.button>
-                </div>
+                      {/* CTA Buttons */}
+                      <div className="flex flex-wrap gap-4">
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-6 md:px-8 py-3 md:py-4 bg-white text-gray-900 rounded-full font-semibold text-sm md:text-base shadow-xl hover:shadow-2xl transition-all"
+                        >
+                          Browse {slides[currentSlide].category}
+                        </motion.button>
+                        <motion.button
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-6 md:px-8 py-3 md:py-4 bg-white/10 backdrop-blur-md border-2 border-white text-white rounded-full font-semibold text-sm md:text-base hover:bg-white/20 transition-all"
+                        >
+                          Learn More
+                        </motion.button>
+                      </div>
+                    </>
+                  )
+                })()}
               </motion.div>
             </div>
           </div>
